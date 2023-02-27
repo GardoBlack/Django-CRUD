@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1 class="text-3xl text-cyan-600 font-bold">Task</h1>
+<br/>
+<ul>
+  {% for task in tasks %}
+
+  <li class="bg-white border-solid border-2 border-sky-500">
+    <a href={% url 'task_detail' task.id%}>
+      <h1 class="text-red-600 font-bold uppercase">{{task.title}}</h1>
+      <p>{{task.description}}</p>
+      <p class="text-red-900">Author: {{task.user.username}}</p>
+
+      {{task.datecompleted|date:'M j Y:i'}}
+    </a>
+  </li>
+  <br />
+  {% endfor %}
+</ul>
+
+{% endblock%}

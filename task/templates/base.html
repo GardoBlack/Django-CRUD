@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Django Crud App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-800">
+    <nav>
+      <ul class="flex flex-row justify-around space-x-12 bg-indigo-900">
+        <li class="font-bold text-white hover:text-red-700 text-3xl py-5">
+          <a href="/"> Home</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="font-bold text-white hover:text-red-700 text-3xl py-5">
+          <a href="/task"> Task Pending</a>
+        </li>
+        <li class="font-bold text-white hover:text-red-700 text-3xl py-5">
+          <a href="/tasks_completed"> Task Completed</a>
+        </li>
+        <li class="font-bold text-white hover:text-red-700 text-3xl py-5">
+          <a href="/task/create/"> Create Task</a>
+        </li>
+
+        <li class="font-bold text-white hover:text-red-700 text-3xl py-5">
+          <a href="/logout"> Logout</a>
+        </li>
+        {% else %}
+        <li class="font-bold text-white hover:text-red-700 text-3xl py-5">
+          <a href="/singnup"> Signup</a>
+        </li>
+        <li class="font-bold text-white hover:text-red-700 text-3xl py-5">
+          <a href="/signin"> Login</a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% block content %} {% endblock %}
+  </body>
+</html>
